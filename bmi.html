@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check your BMI</h1>
+    <h3>Enter your weight and height below to check your BMI result</h3>
+    <h3>Put your weight in here (KG)</h3>
+    <input id="weight" type="number" placeholder="Number in KG" value="" style="width: 250px;height: 25px;">
+    <h3>And your height in here (CM)</h3>
+    <input id="height" type="number" placeholder="Number in CM" value="" style="width: 250px;height: 25px;display: block;">
+    <button onclick="calculate()" style="margin-top: 25px;">Calculate BMI</button>
+    <h2></h2>
+</body>
+</html>
+<script>
+    function calculate(){
+        let weig=Number(document.getElementById("weight").value);
+        let heig=Number(document.getElementById("height").value)/(100);
+        let bmi=(weig)/(heig*heig);
+        if(bmi<=18.4){
+            document.querySelector("h2").innerText=`Your BMI is ${bmi} which means your are UnderWeight`;
+        }else if(bmi>=18.5 && bmi<=24.9){
+            document.querySelector("h2").innerText=`Your BMI is ${bmi} which means your are Normal weight`;
+        }else if(bmi>=25 && bmi<=29.9){
+            document.querySelector("h2").innerText=`Your BMI is ${bmi} which means your are Overweight`;
+        }else if(bmi>=30){
+            document.querySelector("h2").innerText=`Your BMI is ${bmi} which means your are obese`;
+        }
+    }
+</script>
